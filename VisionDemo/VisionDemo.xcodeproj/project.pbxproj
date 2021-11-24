@@ -52,13 +52,53 @@
 		8AAB0078274EE89F008C8078 /* VisionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8AAB0079274EE89F008C8078 /* AppDelegate.swift */,
-				8AAB007B274EE89F008C8078 /* SceneDelegate.swift */,
-				8AAB0082274EE8A1008C8078 /* Assets.xcassets */,
-				8AAB0084274EE8A1008C8078 /* LaunchScreen.storyboard */,
-				8AAB0087274EE8A1008C8078 /* Info.plist */,
+				8AAB008D274EEAB4008C8078 /* Application */,
+				8AAB008E274EEAC6008C8078 /* Modules */,
+				8AAB0090274EEB15008C8078 /* Common */,
+				8AAB008F274EEACE008C8078 /* Resources  */,
+				8AAB0091274EEB1E008C8078 /* Supporting Files */,
 			);
 			path = VisionDemo;
+			sourceTree = "<group>";
+		};
+		8AAB008D274EEAB4008C8078 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8AAB007B274EE89F008C8078 /* SceneDelegate.swift */,
+				8AAB0079274EE89F008C8078 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8AAB008E274EEAC6008C8078 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8AAB008F274EEACE008C8078 /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				8AAB0082274EE8A1008C8078 /* Assets.xcassets */,
+				8AAB0084274EE8A1008C8078 /* LaunchScreen.storyboard */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		8AAB0090274EEB15008C8078 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8AAB0091274EEB1E008C8078 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AAB0087274EE8A1008C8078 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +315,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H44389JMW4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VisionDemo/Info.plist;
+				INFOPLIST_FILE = "VisionDemo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -304,7 +344,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H44389JMW4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VisionDemo/Info.plist;
+				INFOPLIST_FILE = "VisionDemo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
