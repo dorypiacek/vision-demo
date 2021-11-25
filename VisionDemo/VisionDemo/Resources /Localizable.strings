@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  VisionDemo
+
+  Created by Dory on 25/11/2021.
+  
+*/
+
+// MARK: - General
+
+"general_cancel" = "Cancel";
+"general_close" = "Close";
+"general_ok" = "Ok";
+
+// MARK: - Main
+
+"main_addPhoto_buttonTitle" = "Add Photo";
+"main_addPhoto_dialogueTitle" = "Do you want to take a new photo or choose from library instead?";
+"main_addPhoto_captureAction" = "Take Photo";
+"main_addPhoto_chooseAction" = "Choose From Library";
+"main_addPhoto_missingPermissions_title" = "Missing image library permissions.";
+"main_addPhoto_missingPermissions_message" = "Please grant it in application settings.";
+
+// MARK: - Photo
+
+"photo_confirmButton_title" = "Save";
+"photo_close_dialogueTitle" = "Are you sure to close this page?";
+"photo_close_dialogueMessage" = "All data entered will be lost.";
+"photo_replacePhoto_buttonTitle" = "Replace Photo";
