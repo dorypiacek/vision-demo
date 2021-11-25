@@ -2,6 +2,7 @@ platform :ios, '14.0'
 
 target 'VisionDemo' do
   use_frameworks!
+	inhibit_all_warnings!
 
   pod 'RealmSwift', '~> 10'
   pod 'SnapKit', '~> 5.0.0'

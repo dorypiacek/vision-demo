@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-final class PhotoManager: NSObject, ObservableObject {
+final class PhotoManager: NSObject {
 	public enum SourceType {
 		case camera
 		case photoLibrary
@@ -16,21 +16,11 @@ final class PhotoManager: NSObject, ObservableObject {
 	
 	// MARK: - Public properties
 	
-	@Published var image: UIImage?
-	
-	// MARK: - Private properties
-	
-	private var sourceType: SourceType
-	
-	// MARK: - Initializer
-	
-	init(sourceType: SourceType) {
-		self.sourceType = sourceType
-	}
+	@Published var image: ProcessedImage?
 	
 	// MARK: - Public methods
 	
-	public func makeViewController() -> UIViewController {
+	public func makeViewController(with sourceType: SourceType) -> UIViewController {
 		sourceType == .camera ? makePhotoCaptureController() : makeChooseImageController()
 	}
 	
@@ -51,6 +41,14 @@ final class PhotoManager: NSObject, ObservableObject {
 		imagePicker.delegate = self
 		return imagePicker
 	}
+	
+	private func process(pickedImage: UIImage) {
+		guard let imageData = pickedImage.jpegData(compressionQuality: 0.7) else {
+			return
+		}
+		
+		image = ProcessedImage(imageData: imageData)
+	}
 }
 
 // MARK: - PHPickerViewControllerDelegate
@@ -62,7 +60,7 @@ extension PhotoManager: PHPickerViewControllerDelegate {
 		
 		provider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
 			if let pickedImage = image as? UIImage {
-				self?.image = pickedImage
+				self?.process(pickedImage: pickedImage)
 			}
 		}
 	}
@@ -72,11 +70,9 @@ extension PhotoManager: PHPickerViewControllerDelegate {
 
 extension PhotoManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-		guard let pickedImage = info[.originalImage] as? UIImage else {
-			return
+		if let pickedImage = info[.originalImage] as? UIImage {
+			process(pickedImage: pickedImage)
 		}
-		
-		image = pickedImage
 	}
 }
 

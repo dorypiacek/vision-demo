@@ -22,6 +22,10 @@
 		8AC79CAF274F88F7008F30C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AC79CAE274F88F7008F30C1 /* Localizable.strings */; };
 		8AC79CB2274F8992008F30C1 /* LocalizationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CB1274F8992008F30C1 /* LocalizationKit.swift */; };
 		8AC79CB5274F8A3B008F30C1 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CB4274F8A3B008F30C1 /* String+Localized.swift */; };
+		8AC79CBA274FA9DE008F30C1 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */; };
+		8AC79CBF274FAE5D008F30C1 /* PhotoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CBE274FAE5D008F30C1 /* PhotoCoordinator.swift */; };
+		8AC79CC1274FAEA2008F30C1 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CC0274FAEA2008F30C1 /* PhotoViewModel.swift */; };
+		8AC79CC4274FB2C3008F30C1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC79CC3274FB2C3008F30C1 /* PhotoViewController.swift */; };
 		F604A394FDC6917B002892C2 /* Pods_VisionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA9AAE6D63911873D497D9 /* Pods_VisionDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,10 @@
 		8AC79CAE274F88F7008F30C1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8AC79CB1274F8992008F30C1 /* LocalizationKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationKit.swift; sourceTree = "<group>"; };
 		8AC79CB4274F8A3B008F30C1 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		8AC79CBE274FAE5D008F30C1 /* PhotoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCoordinator.swift; sourceTree = "<group>"; };
+		8AC79CC0274FAEA2008F30C1 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		8AC79CC3274FB2C3008F30C1 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		8AFA9AAE6D63911873D497D9 /* Pods_VisionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29FDDA66BF3F892EDBACA90 /* Pods-VisionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionDemo.release.xcconfig"; path = "Target Support Files/Pods-VisionDemo/Pods-VisionDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +129,7 @@
 		8AAB0090274EEB15008C8078 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8AC79CB8274FA9CC008F30C1 /* ML */,
 				8AC79CB3274F8A27008F30C1 /* Extensions */,
 				8AC79CB0274F8981008F30C1 /* Theme */,
 				8AC79C9B274EF5E4008F30C1 /* Coordinators */,
@@ -177,6 +186,9 @@
 		8AC79CA1274EF71E008F30C1 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				8AC79CBD274FAA7B008F30C1 /* ViewController */,
+				8AC79CBC274FAA72008F30C1 /* ViewModel */,
+				8AC79CBB274FAA6B008F30C1 /* Coordinator */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -219,6 +231,38 @@
 				8AC79CB4274F8A3B008F30C1 /* String+Localized.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8AC79CB8274FA9CC008F30C1 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		8AC79CBB274FAA6B008F30C1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8AC79CBE274FAE5D008F30C1 /* PhotoCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8AC79CBC274FAA72008F30C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8AC79CC0274FAEA2008F30C1 /* PhotoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8AC79CBD274FAA7B008F30C1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8AC79CC3274FB2C3008F30C1 /* PhotoViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		BCA92E00AA0F66DD012421A1 /* Frameworks */ = {
@@ -356,13 +400,17 @@
 				8AAB0093274EEF83008C8078 /* PhotoManager.swift in Sources */,
 				8AC79CA7274EF75A008F30C1 /* MainCoordinator.swift in Sources */,
 				8AAB007A274EE89F008C8078 /* AppDelegate.swift in Sources */,
+				8AC79CBA274FA9DE008F30C1 /* SqueezeNet.mlmodel in Sources */,
 				8AAB0097274EF394008C8078 /* ProcessedImage.swift in Sources */,
+				8AC79CC1274FAEA2008F30C1 /* PhotoViewModel.swift in Sources */,
 				8AAB007C274EE89F008C8078 /* SceneDelegate.swift in Sources */,
 				8AC79CB2274F8992008F30C1 /* LocalizationKit.swift in Sources */,
 				8AC79CB5274F8A3B008F30C1 /* String+Localized.swift in Sources */,
 				8AC79C9D274EF600008F30C1 /* CoordinatorType.swift in Sources */,
+				8AC79CC4274FB2C3008F30C1 /* PhotoViewController.swift in Sources */,
 				8AC79C9F274EF66D008F30C1 /* RealmDataProvider.swift in Sources */,
 				8AC79CA9274EF78C008F30C1 /* MainViewController.swift in Sources */,
+				8AC79CBF274FAE5D008F30C1 /* PhotoCoordinator.swift in Sources */,
 				8AC79CAD274EF821008F30C1 /* AlertConfig.swift in Sources */,
 				8AC79CAB274EF79A008F30C1 /* MainViewModel.swift in Sources */,
 			);

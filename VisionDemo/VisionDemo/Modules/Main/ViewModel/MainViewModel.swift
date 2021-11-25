@@ -5,14 +5,16 @@
 //  Created by Dory on 24/11/2021.
 //
 
+import Combine
+
 final class MainViewModel {
 	let buttonTitle: String = LocalizationKit.main.buttonTitle
 	
-	var onShowAlert: ((AlertConfig) -> Void)?
-	var onAddPhoto: ((PhotoManager.SourceType) -> Void)?
+	var showAlertSubject = PassthroughSubject<AlertConfig, Never>()
+	var addPhotoSubject = PassthroughSubject<PhotoManager.SourceType, Never>()
 	
 	func addPhoto() {
-		onShowAlert?(makeInputDialogue())
+		showAlertSubject.send(makeInputDialogue())
 	}
 	
 	private func makeInputDialogue() -> AlertConfig {
@@ -25,14 +27,14 @@ final class MainViewModel {
 					title: LocalizationKit.main.captureAction,
 					style: .default,
 					handler: { [weak self] in
-						self?.onAddPhoto?(.camera)
+						self?.addPhotoSubject.send(.camera)
 					}
 				),
 				AlertAction(
 					title: LocalizationKit.main.chooseAction,
 					style: .default,
 					handler: { [weak self] in
-						self?.onAddPhoto?(.photoLibrary)
+						self?.addPhotoSubject.send(.photoLibrary)
 					}
 				),
 				AlertAction(

@@ -11,12 +11,13 @@ import Foundation
 class ProcessedImage: Object {
 	@Persisted var id: ObjectId
 	@Persisted var createdAt: Date
-	@Persisted var image: Data
+	@Persisted var imageData: Data
+	@Persisted var tags: List<String>
 	
-	convenience init(image: Data) {
+	convenience init(imageData: Data) {
 		self.init()
 		
-		self.image = image
+		self.imageData = imageData
 		self.createdAt = Date()
 	}
 }
