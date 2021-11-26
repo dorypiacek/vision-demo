@@ -1,5 +1,5 @@
 //
-//  ImageProcessing.swift
+//  ImageProcessor.swift
 //  VisionDemo
 //
 //  Created by Dory on 26/11/2021.
@@ -50,11 +50,11 @@ final class ImageProcessor {
 		let config = MLModelConfiguration()
 
 		guard let model = try? SqueezeNet(configuration: config).model else {
-			fatalError("App failed to create an image classifier model instance.")
+			fatalError("Couldn't create SqueezeNet model instance")
 		}
 
 		guard let visionModel = try? VNCoreMLModel(for: model) else {
-			fatalError("App failed to create a `VNCoreMLModel` instance.")
+			fatalError("Couldn't create VNCoreMLModel instance.")
 		}
 
 		return visionModel

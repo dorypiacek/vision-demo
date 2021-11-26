@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A019DDE2750F48300E52DC7 /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A019DDD2750F48300E52DC7 /* ImageProcessing.swift */; };
+		8A019DDE2750F48300E52DC7 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A019DDD2750F48300E52DC7 /* ImageProcessor.swift */; };
 		8A019DE02751364400E52DC7 /* Array+UniqueElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A019DDF2751364400E52DC7 /* Array+UniqueElements.swift */; };
 		8AAB007A274EE89F008C8078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB0079274EE89F008C8078 /* AppDelegate.swift */; };
 		8AAB007C274EE89F008C8078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB007B274EE89F008C8078 /* SceneDelegate.swift */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		792245B036392489D000788D /* Pods-VisionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionDemo.debug.xcconfig"; path = "Target Support Files/Pods-VisionDemo/Pods-VisionDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		8A019DDD2750F48300E52DC7 /* ImageProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessing.swift; sourceTree = "<group>"; };
+		8A019DDD2750F48300E52DC7 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		8A019DDF2751364400E52DC7 /* Array+UniqueElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+UniqueElements.swift"; sourceTree = "<group>"; };
 		8AAB0076274EE89F008C8078 /* VisionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAB0079274EE89F008C8078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */,
-				8A019DDD2750F48300E52DC7 /* ImageProcessing.swift */,
+				8A019DDD2750F48300E52DC7 /* ImageProcessor.swift */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 				8AC79CCD274FD178008F30C1 /* UIButton+Closure.swift in Sources */,
 				8AC79CC4274FB2C3008F30C1 /* PhotoViewController.swift in Sources */,
 				8AC79C9F274EF66D008F30C1 /* RealmDataProvider.swift in Sources */,
-				8A019DDE2750F48300E52DC7 /* ImageProcessing.swift in Sources */,
+				8A019DDE2750F48300E52DC7 /* ImageProcessor.swift in Sources */,
 				8AC79CA9274EF78C008F30C1 /* MainViewController.swift in Sources */,
 				8AC79CBF274FAE5D008F30C1 /* PhotoCoordinator.swift in Sources */,
 				8AC79CD2274FDDEE008F30C1 /* TagButton.swift in Sources */,

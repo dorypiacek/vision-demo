@@ -30,4 +30,4 @@
 
 // MARK: - Gallery
 
-"gallery_noPhotos_placeholder" = "There are no photos here. :( \nPlease add new photos or remove filters.";
+"gallery_noPhotos_placeholder" = "There are no photos here :( \nPlease add new photos or remove filters.";

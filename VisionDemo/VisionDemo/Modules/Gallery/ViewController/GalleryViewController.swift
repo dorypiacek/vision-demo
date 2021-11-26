@@ -21,8 +21,8 @@ final class GalleryViewController: UIViewController {
 	private var observers: [AnyCancellable] = []
 	private var collectionData: [ProcessedImage] = [] {
 		didSet {
-			placeholderLabel.isHidden = !collectionData.isEmpty
 			collectionView.reloadData()
+			placeholderLabel.isHidden = !collectionData.isEmpty
 		}
 	}
 	
@@ -119,7 +119,7 @@ final class GalleryViewController: UIViewController {
 			make.width.lessThanOrEqualToSuperview().inset(Metrics.spacing.medium)
 		}
 		
-		placeholderLabel.isHidden = !collectionData.isEmpty
+		placeholderLabel.isHidden = true
 	}
 }
 
