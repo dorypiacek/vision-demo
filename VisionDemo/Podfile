@@ -6,6 +6,5 @@ target 'VisionDemo' do
 
   pod 'RealmSwift', '~> 10'
   pod 'SnapKit', '~> 5.0.0'
-	pod 'TagListView', '~> 1.0'
 
 end
