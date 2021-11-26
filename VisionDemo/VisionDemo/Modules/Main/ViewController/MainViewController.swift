@@ -9,9 +9,13 @@ import UIKit
 import SnapKit
 
 final class MainViewController: UIViewController {
+	
+	// MARK: Private properties
+	
 	private var viewModel: MainViewModel
 	
-	private let addButton = UIButton()
+	private let addButton = PrimaryButton()
+	private let galleryButton = PrimaryButton()
 	
 	// MARK: Initializers
 	
@@ -31,31 +35,26 @@ final class MainViewController: UIViewController {
 		setupUI()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		navigationController?.setNavigationBarHidden(true, animated: false)
-	}
-	
 	// MARK: - Private methods
 	
 	private func setupUI() {
 		view.backgroundColor = .systemTeal
 		view.addSubview(addButton)
+		view.addSubview(galleryButton)
 		
-		setupButton()
+		setupButtons()
 	}
 	
-	private func setupButton() {
-		addButton.titleLabel?.textColor = .white
-		addButton.setTitle(viewModel.buttonTitle, for: .normal)
-		addButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-		
+	private func setupButtons() {
+		addButton.update(with: viewModel.addPhotoButtonContent)
 		addButton.snp.makeConstraints { make in
 			make.center.equalToSuperview()
 		}
-	}
-	
-	@objc private func buttonTapped() {
-		viewModel.addPhoto()
+		
+		galleryButton.update(with: viewModel.galeryButtonContent)
+		galleryButton.snp.makeConstraints { make in
+			make.top.equalTo(addButton.snp.bottom).offset(Metrics.spacing.medium)
+			make.centerX.equalToSuperview()
+		}
 	}
 }

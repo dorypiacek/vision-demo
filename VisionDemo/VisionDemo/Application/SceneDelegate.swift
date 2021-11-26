@@ -10,11 +10,11 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	
 	var window: UIWindow?
-	var mainCoordinator: CoordinatorType?
+	var mainCoordinator: MainCoordinator?
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		if let windowScene = scene as? UIWindowScene {
-			let navigationController = UINavigationController()
+			let navigationController = makeNavigationController()
 			mainCoordinator = MainCoordinator(presenter: navigationController)
 			mainCoordinator?.start()
 			
@@ -24,6 +24,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			window?.overrideUserInterfaceStyle = .light
 			window?.makeKeyAndVisible()
 		}
+	}
+	
+	private func makeNavigationController() -> UINavigationController {
+		let navController = UINavigationController()
+		navController.navigationBar.tintColor = .white
+		navController.navigationBar.barStyle = .black
+		navController.navigationBar.isTranslucent = true
+		navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+		
+		return navController
 	}
 }
 

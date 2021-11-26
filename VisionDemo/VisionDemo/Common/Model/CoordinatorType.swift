@@ -6,11 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 protocol CoordinatorType {
-	var children: [CoordinatorType] { get set }
 	var presenter: UINavigationController { get set }
-
+	
 	func start()
 	func showAlert(with config: AlertConfig)
 }
@@ -18,6 +18,12 @@ protocol CoordinatorType {
 extension CoordinatorType {
 	func showAlert(with config: AlertConfig) {
 		let alertController = config.controller
+		
+		if let presentedController = presenter.viewControllers.last?.presentedViewController {
+			presentedController.present(alertController, animated: true)
+			return
+		}
+		
 		presenter.present(alertController, animated: true)
 	}
 }

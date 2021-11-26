@@ -8,13 +8,32 @@
 import Combine
 
 final class MainViewModel {
-	let buttonTitle: String = LocalizationKit.main.buttonTitle
+	
+	// MARK: Public properties
+	
+	lazy var addPhotoButtonContent: PrimaryButton.Content = makeAddButtonContent()
+	lazy var galeryButtonContent: PrimaryButton.Content = makeGaleryButtonContent()
 	
 	var showAlertSubject = PassthroughSubject<AlertConfig, Never>()
 	var addPhotoSubject = PassthroughSubject<PhotoManager.SourceType, Never>()
+	var openGallerySubject = PassthroughSubject<Void, Never>()
 	
-	func addPhoto() {
-		showAlertSubject.send(makeInputDialogue())
+	// MARK: Private methods
+
+	private func makeAddButtonContent() -> PrimaryButton.Content {
+		PrimaryButton.Content(title: LocalizationKit.main.buttonTitle, isEnabled: true) { [weak self] in
+			guard let self = self else { return }
+			
+			self.showAlertSubject.send(self.makeInputDialogue())
+		}
+	}
+	
+	private func makeGaleryButtonContent() -> PrimaryButton.Content {
+		PrimaryButton.Content(title: "Open Gallery", isEnabled: true) { [weak self] in
+			guard let self = self else { return }
+			
+			self.openGallerySubject.send()
+		}
 	}
 	
 	private func makeInputDialogue() -> AlertConfig {

@@ -27,3 +27,7 @@
 "photo_close_dialogueTitle" = "Are you sure to close this page?";
 "photo_close_dialogueMessage" = "All data entered will be lost.";
 "photo_replacePhoto_buttonTitle" = "Replace Photo";
+
+// MARK: - Gallery
+
+"gallery_noPhotos_placeholder" = "There are no photos here. :( \nPlease add new photos or remove filters.";

@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import Combine
 
 final class PhotoManager: NSObject {
 	public enum SourceType {
@@ -16,7 +17,7 @@ final class PhotoManager: NSObject {
 	
 	// MARK: - Public properties
 	
-	@Published var image: ProcessedImage?
+	var imageSubject = PassthroughSubject<ProcessedImage, Never>()
 	
 	// MARK: - Public methods
 	
@@ -43,11 +44,12 @@ final class PhotoManager: NSObject {
 	}
 	
 	private func process(pickedImage: UIImage) {
-		guard let imageData = pickedImage.jpegData(compressionQuality: 0.7) else {
+		guard let imageData = pickedImage.jpegData(compressionQuality: 0.0) else {
 			return
 		}
 		
-		image = ProcessedImage(imageData: imageData)
+		let image = ProcessedImage(imageData: imageData)
+		imageSubject.send(image)
 	}
 }
 

@@ -9,6 +9,7 @@ struct LocalizationKit {
 	static let general = General()
 	static let main = Main()
 	static let photo = Photo()
+	static let gallery = Gallery() 
 }
 
 struct General {
@@ -31,4 +32,8 @@ struct Photo {
 	let confirmButtonTitle = "photo_confirmButton_title".localized
 	let closeDialogueTitle = "photo_close_dialogueTitle".localized
 	let closeDialogueMessage = "photo_close_dialogueMessage".localized
+}
+
+struct Gallery {
+	let noPhotosPlaceholder = "gallery_noPhotos_placeholder".localized
 }

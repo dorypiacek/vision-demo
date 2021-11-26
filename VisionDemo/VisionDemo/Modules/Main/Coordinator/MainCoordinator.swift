@@ -11,12 +11,14 @@ import Combine
 
 final class MainCoordinator: CoordinatorType {
 	var presenter: UINavigationController
-	var children: [CoordinatorType] = [CoordinatorType]()
+	
+	private var galleryCoordinator: GalleryCoordinator?
+	private var photoCoordinator: PhotoCoordinator?
 	
 	private var photoManager = PhotoManager()
-	private var observers: [AnyCancellable] = []
 	
-	private var photoCoordinator: CoordinatorType?
+	private var observers: [AnyCancellable] = []
+	private var photoManagerObserver: AnyCancellable?
 	
 	init(presenter: UINavigationController) {
 		self.presenter = presenter
@@ -24,6 +26,8 @@ final class MainCoordinator: CoordinatorType {
 	
 	func start() {
 		let viewModel = MainViewModel()
+		let viewController = MainViewController(viewModel: viewModel)
+		
 		viewModel.addPhotoSubject
 			.sink { [weak self] sourceType in
 				self?.showAddPhoto(with: sourceType)
@@ -32,35 +36,54 @@ final class MainCoordinator: CoordinatorType {
 		
 		viewModel.showAlertSubject
 			.sink { [weak self] config in
-				self?.showInputDialogue(with: config)
+				self?.showAlert(with: config)
 			}
 			.store(in: &observers)
 		
-		let viewController = MainViewController(viewModel: viewModel)
+		viewModel.openGallerySubject
+			.sink { [weak self] in
+				self?.showGallery()
+			}
+			.store(in: &observers)
+		
 		presenter.pushViewController(viewController, animated: true)
 	}
 	
-	private func showInputDialogue(with config: AlertConfig) {
-		showAlert(with: config)
-	}
-	
 	private func showAddPhoto(with sourceType: PhotoManager.SourceType) {
-		photoManager.$image
+		photoManagerObserver = photoManager.imageSubject
 			.receive(on: DispatchQueue.main)
 			.sink { [weak self] image in
-				if let image = image {
-					self?.presenter.dismiss(animated: true, completion: nil)
+				self?.presenter.dismiss(animated: true) {
 					self?.showPhotoDetail(with: image)
 				}
 			}
-			.store(in: &observers)
 		
 		let viewController = photoManager.makeViewController(with: sourceType)
 		presenter.present(viewController, animated: true)
 	}
 	
 	private func showPhotoDetail(with image: ProcessedImage) {
-		photoCoordinator = PhotoCoordinator(image: image, presenter: presenter)
+		if photoCoordinator != nil {
+			photoCoordinator = nil
+		}
+		
+		photoCoordinator = PhotoCoordinator(
+			image: image,
+			purpose: .addPhoto,
+			presenter: presenter
+		)
+		
+		photoCoordinator?.showGallerySubject
+			.sink { [weak self] in
+				self?.showGallery()
+			}
+			.store(in: &observers)
+		
 		photoCoordinator?.start()
+	}
+	
+	private func showGallery() {
+		galleryCoordinator = GalleryCoordinator(presenter: presenter)
+		galleryCoordinator?.start()
 	}
 }

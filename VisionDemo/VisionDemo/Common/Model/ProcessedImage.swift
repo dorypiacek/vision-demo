@@ -14,6 +14,10 @@ class ProcessedImage: Object {
 	@Persisted var imageData: Data
 	@Persisted var tags: List<String>
 	
+	var image: UIImage? {
+		UIImage(data: imageData)
+	}
+	
 	convenience init(imageData: Data) {
 		self.init()
 		

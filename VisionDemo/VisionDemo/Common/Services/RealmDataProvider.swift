@@ -65,14 +65,4 @@ class RealmDataProvider {
 			print("RealmDP: delete failed: \(error.localizedDescription)")
 		}
 	}
-	
-	func deleteAll() {
-		do {
-			try realm.write {
-				realm.deleteAll()
-			}
-		} catch let error as NSError {
-			print("RealmDP: deleteAll failed: \(error.localizedDescription)")
-		}
-	}
 }
