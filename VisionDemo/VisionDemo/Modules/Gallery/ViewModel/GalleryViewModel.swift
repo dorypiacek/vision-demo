@@ -53,7 +53,7 @@ final class GalleryViewModel {
 		images = results
 			.toArray(ofType: ProcessedImage.self)
 			.sorted(by: {
-				$0.createdAt.timeIntervalSince1970 < $1.createdAt.timeIntervalSince1970
+				$0.createdAt.timeIntervalSince1970 > $1.createdAt.timeIntervalSince1970
 			})
 		
 		allImages = images

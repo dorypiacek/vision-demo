@@ -86,7 +86,7 @@ final class GalleryViewController: UIViewController {
 	}
 	
 	private func setupCollectionView() {
-		collectionView.backgroundColor = .clear
+		collectionView.backgroundColor = .systemTeal
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
@@ -108,6 +108,8 @@ final class GalleryViewController: UIViewController {
 	}
 	
 	private func setupPlaceholderLabel() {
+		placeholderLabel.isHidden = true
+		
 		placeholderLabel.text = LocalizationKit.gallery.noPhotosPlaceholder
 		placeholderLabel.font = UIFont.boldSystemFont(ofSize: 20)
 		placeholderLabel.textAlignment = .center
@@ -118,8 +120,6 @@ final class GalleryViewController: UIViewController {
 			make.center.equalToSuperview()
 			make.width.lessThanOrEqualToSuperview().inset(Metrics.spacing.medium)
 		}
-		
-		placeholderLabel.isHidden = true
 	}
 }
 

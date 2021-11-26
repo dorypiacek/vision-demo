@@ -263,8 +263,8 @@
 		8AC79CB8274FA9CC008F30C1 /* ML */ = {
 			isa = PBXGroup;
 			children = (
-				8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */,
 				8A019DDD2750F48300E52DC7 /* ImageProcessor.swift */,
+				8AC79CB9274FA9DE008F30C1 /* SqueezeNet.mlmodel */,
 			);
 			path = ML;
 			sourceTree = "<group>";
