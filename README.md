@@ -2,7 +2,7 @@
 
 Simple application using Vision framework to detect the main object in an image.
 
-## Functions 
+## Features 
 
 - capture a photo with a camera or choose one from library
 - image is processed using Vision framework and pre-trained SqueezeNet model to detect the main object of the photo 
